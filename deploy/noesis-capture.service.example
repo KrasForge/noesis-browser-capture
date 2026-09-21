@@ -1,0 +1,26 @@
+[Unit]
+Description=Noesis browser capture Knowledge Engine (loopback only)
+After=network.target
+
+[Service]
+Type=simple
+# This is the separate Noesis backend checkout, not noesis-browser-capture.
+# Adjust this path to your local backend checkout.
+WorkingDirectory=%h/Noesis
+Environment=NOESIS_DB_PATH=%h/.local/share/noesis-capture/intake.duckdb
+Environment=NOESIS_MCP_TRANSPORT=http
+Environment=NOESIS_MCP_HTTP_HOST=127.0.0.1
+Environment=NOESIS_MCP_HTTP_PORT=8129
+Environment=NOESIS_MCP_AUTH_TOKENS_FILE=%h/.config/noesis-capture/callers.json
+ExecStart=%h/.local/share/noesis-capture/venv/bin/python tools/knowledge_engine_mcp/server.py
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=%h/.local/share/noesis-capture
+
+[Install]
+WantedBy=default.target

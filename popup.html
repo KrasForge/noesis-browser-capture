@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Capture to Noesis</title><link rel="stylesheet" href="style.css">
+<body class="popup"><h1>Capture to Noesis</h1>
+<form id="capture"><fieldset id="fields" disabled>
+<label>Action<select id="action"></select></label><p id="action-help"></p>
+<label>Capture<select id="unit"><option value="page">Page (URL, optional article text)</option><option value="selection">Selected text</option><option value="pdf">Public PDF link (no file upload)</option><option value="tab">Selected tabs (URLs only)</option></select></label>
+<button type="button" id="tabs">Choose from highlighted tabs</button><button type="button" id="group">Choose tabs in current group</button><div id="tab-list"></div>
+<label>Source URL<input id="url" type="url" required></label>
+<label><input id="query" type="checkbox"> Keep URL query parameters (review for secrets)</label>
+<label>Title<input id="title" required maxlength="1024"></label>
+<button type="button" id="article">Read article text for preview</button>
+<label>Text to send (editable; empty sends URL only)<textarea id="text" maxlength="100000"></textarea></label>
+<p id="text-status"></p>
+<label>Question<textarea id="question" maxlength="10000"></textarea></label>
+<label>Note<textarea id="note" maxlength="10000"></textarea></label>
+<details><summary>Attach Modulo context</summary>
+<button type="button" id="load-contexts">Load Modulo projects, areas, and tasks</button><label>Choose an object<select id="contexts"><option value="">Enter manually below</option></select></label><label><input id="route-modulo" type="checkbox"> Add a linked reference in Modulo after capture</label>
+<label>Object type<select id="kind"><option value="">None</option><option>project</option><option>area</option><option>note</option><option>task</option></select></label>
+<label>Object ID<input id="object-id" maxlength="128"></label>
+<label>Object version<input id="object-version" type="number" min="1" value="1"></label>
+<label>Return to this Modulo URL<input id="return-url" type="url" placeholder="https://modulo.example/…"></label>
+<p>These identifiers stay attached to the Noesis request and receipt. Areas are retained as context; direct Noesis links support projects, notes, and tasks.</p>
+</details>
+<label><input id="public" type="checkbox" required> I reviewed this payload: it is public content, contains no secrets, and may be sent to Noesis.</label>
+<button id="save">Save to Noesis</button></fieldset></form>
+<h2>Pending captures</h2><div id="queue"></div>
+<h2>Latest result</h2><p id="result"></p><button id="receipt" hidden>Download routing receipt</button><a id="return" hidden target="_blank" rel="noopener noreferrer">Return to Modulo</a>
+<button id="options">Connection settings</button><button id="clear">Clear local captures and receipts</button><p id="status" role="status"></p>
+<small>Private browsing is excluded. No cookies, referrer, form values, hidden page content, or background browsing history are collected. Pending content expires after seven days.</small>
+<script type="module" src="popup.js"></script></body></html>

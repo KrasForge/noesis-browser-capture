@@ -1,0 +1,23 @@
+{
+  "name": "noesis-browser-capture",
+  "version": "0.2.0",
+  "description": "Firefox extension for capturing web pages, selections, PDF links, and tab groups into Noesis, with privacy controls, reliable retries, and Modulo context linking.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "lint": "web-ext lint",
+    "build": "web-ext build"
+  },
+  "devDependencies": {
+    "web-ext": "10.6.0"
+  },
+  "overrides": {
+    "addons-linter": {
+      "image-size": "2.0.4"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Capture to Noesis settings</title><link rel="stylesheet" href="style.css">
+<h1>Capture to Noesis</h1>
+<p>Connect to your Noesis Knowledge Engine. Captures are sent only when you click Save or Retry.</p>
+<label>Load a local connection file<input id="connection-file" type="file" accept="application/json,.json"></label>
+<form id="settings">
+<label>MCP endpoint<input id="endpoint" type="url" required placeholder="http://127.0.0.1:8129/mcp"></label>
+<label>Namespace<input id="namespace" required maxlength="120" placeholder="research"></label>
+<label>Bearer token<input id="token" type="password" autocomplete="off" required></label>
+<p>The token is stored in this Firefox profile, without browser sync. Use a dedicated caller token with intake and namespace read/write scopes.</p>
+<details><summary>Optional Modulo result routing</summary>
+<label>Modulo origin<input id="modulo-url" type="url" placeholder="https://modulo.141.147.5.114.sslip.io"></label>
+<label>Modulo access token<input id="modulo-token" type="password" autocomplete="off"></label>
+<p>When routing is enabled on a capture, the extension adds a source/session reference to Life/PARA/Resources linked to the selected object. It does not copy page text or overwrite notes. Expired tokens must be replaced.</p>
+</details>
+<button>Save connection</button><button id="forget" type="button">Forget connection</button>
+</form><p id="status" role="status"></p><script type="module" src="options.js"></script></html>

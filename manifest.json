@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Capture to Noesis",
+  "version": "0.2.0",
+  "description": "Save a page, selected text, and a note to your Noesis Exploration intake.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "capture@noesis.local",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": [
+          "websiteContent",
+          "browsingActivity",
+          "authenticationInfo"
+        ]
+      }
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "action": {
+    "default_title": "Capture to Noesis",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "incognito": "not_allowed",
+  "optional_permissions": [
+    "tabs"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}

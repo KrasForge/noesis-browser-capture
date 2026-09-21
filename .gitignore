@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.artifacts/
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+connection.json
+callers.json
+*.duckdb
+*.duckdb.wal
